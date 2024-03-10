@@ -23,3 +23,8 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+bootRun {
+	systemProperty 'server.port', '9090' // Change 9090 to any available port number
+}
+
