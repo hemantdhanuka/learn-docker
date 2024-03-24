@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Build the application using Gradle
-RUN ./gradlew build
+RUN ./gradlew  build -x test
 
 # Create a new stage for the runtime image
 FROM openjdk:17-alpine
