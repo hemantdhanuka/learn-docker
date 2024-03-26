@@ -1,0 +1,25 @@
+services:
+  postgres-db:
+    image: postgres:latest
+    networks:
+      - my-network
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_DB=docker_devops_learn
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  spring-boot-app:
+    image: hemantdhanuka/spring-boot-app-with-postgres-skip-test
+    networks:
+      - my-network
+    depends_on:
+      - postgres-db
+    ports:
+      - 9090:9090
+
+
+networks:
+  my-network:
+    driver: bridge
